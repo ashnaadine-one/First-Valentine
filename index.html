@@ -249,85 +249,76 @@ Love
   </dialog>
 
   <script>
-    // ===== EDIT THESE TWO LINES =====
-    const HIS_NAME = "My forever valentine";
-    const YOUTUBE_VIDEO_ID = "ia5X9DFyGdU";
-    // ===============================
+  const HIS_NAME = "My forever valentine 💘";
+  const YOUTUBE_VIDEO_ID = "ia5X9DFyGdU";
 
-    // Date
-    document.getElementById("today").textContent =
-      new Date().toLocaleDateString(undefined, { year:"numeric", month:"long", day:"numeric" });
+  // Fixed date text
+  document.getElementById("today").textContent = "February 14, 2026";
 
-    // Name
-    document.getElementById("hisName").textContent =
-      (HIS_NAME === "My forever valentine") ? "💝" : My forever valentine💝;
+  // Fixed name
+  document.getElementById("hisName").textContent = HIS_NAME;
 
-    // Floating hearts
-    const hearts = document.querySelector(".hearts");
-    const colors = ["#fb7185","#f472b6","#a78bfa","#60a5fa","#fda4af"];
-    function makeHeart(){
-      const h = document.createElement("div");
-      h.className = "heart";
-      h.style.left = Math.random()*100 + "vw";
-      h.style.color = colors[Math.floor(Math.random()*colors.length)];
-      const size = 10 + Math.random()*14;
-      h.style.width = size + "px";
-      h.style.height = size + "px";
-      h.style.opacity = (0.12 + Math.random()*0.35).toFixed(2);
-      const dur = 10 + Math.random()*18;
-      h.style.animationDuration = dur + "s";
-      h.style.animationDelay = (-Math.random()*dur) + "s";
-      hearts.appendChild(h);
-      setTimeout(()=>h.remove(), dur*1000);
-    }
-    for(let i=0;i<26;i++) makeHeart();
-    setInterval(makeHeart, 950);
+  // Floating hearts
+  const hearts = document.querySelector(".hearts");
+  const colors = ["#fb7185","#f472b6","#a78bfa","#60a5fa","#fda4af"];
+  function makeHeart(){
+    const h = document.createElement("div");
+    h.className = "heart";
+    h.style.left = Math.random()*100 + "vw";
+    h.style.color = colors[Math.floor(Math.random()*colors.length)];
+    const size = 10 + Math.random()*14;
+    h.style.width = size + "px";
+    h.style.height = size + "px";
+    h.style.opacity = (0.12 + Math.random()*0.35).toFixed(2);
+    const dur = 10 + Math.random()*18;
+    h.style.animationDuration = dur + "s";
+    h.style.animationDelay = (-Math.random()*dur) + "s";
+    hearts.appendChild(h);
+    setTimeout(()=>h.remove(), dur*1000);
+  }
+  for(let i=0;i<26;i++) makeHeart();
+  setInterval(makeHeart, 950);
 
-    // Logic
-    const stage = document.getElementById("stage");
-    const yesArea = document.getElementById("yesArea");
-    const noArea = document.getElementById("noArea");
-    const letter = document.getElementById("letter");
+  // Logic
+  const stage = document.getElementById("stage");
+  const yesArea = document.getElementById("yesArea");
+  const noArea = document.getElementById("noArea");
+  const letter = document.getElementById("letter");
 
-    document.getElementById("yesBtn").addEventListener("click", () => {
-      stage.style.display = "block";
-      yesArea.style.display = "block";
-      noArea.classList.remove("show");
-      letter.classList.remove("show");
-    });
+  document.getElementById("yesBtn").addEventListener("click", () => {
+    stage.style.display = "block";
+    yesArea.style.display = "block";
+    noArea.classList.remove("show");
+    letter.classList.remove("show");
+  });
 
-    document.getElementById("noBtn").addEventListener("click", () => {
-      stage.style.display = "block";
-      yesArea.style.display = "none";
-      noArea.classList.add("show");
-      letter.classList.remove("show");
-    });
+  document.getElementById("noBtn").addEventListener("click", () => {
+    stage.style.display = "block";
+    yesArea.style.display = "none";
+    noArea.classList.add("show");
+    letter.classList.remove("show");
+  });
 
-    document.getElementById("openBtn").addEventListener("click", () => {
-      letter.classList.add("show");
-      letter.scrollIntoView({behavior:"smooth", block:"start"});
-    });
+  document.getElementById("openBtn").addEventListener("click", () => {
+    letter.classList.add("show");
+    letter.scrollIntoView({behavior:"smooth", block:"start"});
+  });
 
-    document.getElementById("closeBtn").addEventListener("click", () => {
-      letter.classList.remove("show");
-    });
+  document.getElementById("closeBtn").addEventListener("click", () => {
+    letter.classList.remove("show");
+  });
 
-    // Music
-    const modal = document.getElementById("musicModal");
-    const yt = document.getElementById("ytFrame");
+  // Music
+  const modal = document.getElementById("musicModal");
+  const yt = document.getElementById("ytFrame");
 
-    document.getElementById("musicBtn").addEventListener("click", () => {
-      if (YOUTUBE_VIDEO_ID === "ia5X9DFyGdU"){
-        alert("Edit the code: replace PUT_YOUTUBE_ID_HERE with the YouTube video ID.");
-        return;
-      }
-      yt.src = `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&rel=0`;
-      modal.showModal();
-    });
+  document.getElementById("musicBtn").addEventListener("click", () => {
+    yt.src = `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&rel=0`;
+    modal.showModal();
+  });
 
-    document.getElementById("closeMusic").addEventListener("click", () => {
-      modal.close(); yt.src = "";
-    });
-  </script>
-</body>
-</html>
+  document.getElementById("closeMusic").addEventListener("click", () => {
+    modal.close();
+    yt.src = "";
+  });
+</script>
