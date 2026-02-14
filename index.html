@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>My Valentine 💘</title>
+
   <style>
     :root{
       --bg1:#fff1f5;
@@ -181,7 +182,7 @@
   <div class="wrap">
     <div class="card">
       <div class="top">
-        <div class="badge">💘 Valentine’s • <span id="February 14, 2026"></span></div>
+        <div class="badge">💘 Valentine’s • <span id="today"></span></div>
         <button class="secondary" id="musicBtn">🎵 Close Your Eyes & Listen</button>
       </div>
 
@@ -201,9 +202,10 @@
               <div class="envelope">
                 <div class="flap"></div>
                 <div class="stamp">💌</div>
-                <div class="toLine">To: <span id="My forever valentine">💘</span><br><span>From: Your wife</span></div>
+                <div class="toLine">To: <span id="hisName">💘</span><br><span>From: Your wife</span></div>
               </div>
             </div>
+
             <div class="btnRow" style="justify-content:center;">
               <button id="openBtn">Open ✨</button>
               <button class="secondary" id="closeBtn">Close 🙈</button>
@@ -217,7 +219,8 @@ I hope you remember how special this Valentine’s Day is… our very first as h
 I just want to remind you that I meant every single vow I made to you. I love you so much, and I will love you forever. ♥️
 
 Happy Valentine’s Day 🤍
-Love
+Love,
+Nana
             </div>
           </div>
 
@@ -226,7 +229,7 @@ Love
             <div style="font-weight:900; font-size:18px;">Ehhh okay…</div>
             <div style="color:rgba(17,24,39,.75); margin-top:6px; line-height:1.5;">
               I’ll keep your gift for myself then 😌🎁<br>
-              (But be careful… I might enjoy alone.)
+              (But be careful… I might enjoy it alone.)
             </div>
           </div>
         </div>
@@ -249,76 +252,78 @@ Love
   </dialog>
 
   <script>
-  const HIS_NAME = "My forever valentine 💘";
-  const YOUTUBE_VIDEO_ID = "ia5X9DFyGdU";
+    const HIS_NAME = "My forever valentine 💘";
+    const YOUTUBE_VIDEO_ID = "ia5X9DFyGdU";
 
-  // Fixed date text
-  document.getElementById("today").textContent = "February 14, 2026";
+    // Set date (fixed)
+    document.getElementById("today").textContent = "February 14, 2026";
 
-  // Fixed name
-  document.getElementById("hisName").textContent = HIS_NAME;
+    // Set name
+    document.getElementById("hisName").textContent = HIS_NAME;
 
-  // Floating hearts
-  const hearts = document.querySelector(".hearts");
-  const colors = ["#fb7185","#f472b6","#a78bfa","#60a5fa","#fda4af"];
-  function makeHeart(){
-    const h = document.createElement("div");
-    h.className = "heart";
-    h.style.left = Math.random()*100 + "vw";
-    h.style.color = colors[Math.floor(Math.random()*colors.length)];
-    const size = 10 + Math.random()*14;
-    h.style.width = size + "px";
-    h.style.height = size + "px";
-    h.style.opacity = (0.12 + Math.random()*0.35).toFixed(2);
-    const dur = 10 + Math.random()*18;
-    h.style.animationDuration = dur + "s";
-    h.style.animationDelay = (-Math.random()*dur) + "s";
-    hearts.appendChild(h);
-    setTimeout(()=>h.remove(), dur*1000);
-  }
-  for(let i=0;i<26;i++) makeHeart();
-  setInterval(makeHeart, 950);
+    // Floating hearts
+    const hearts = document.querySelector(".hearts");
+    const colors = ["#fb7185","#f472b6","#a78bfa","#60a5fa","#fda4af"];
+    function makeHeart(){
+      const h = document.createElement("div");
+      h.className = "heart";
+      h.style.left = Math.random()*100 + "vw";
+      h.style.color = colors[Math.floor(Math.random()*colors.length)];
+      const size = 10 + Math.random()*14;
+      h.style.width = size + "px";
+      h.style.height = size + "px";
+      h.style.opacity = (0.12 + Math.random()*0.35).toFixed(2);
+      const dur = 10 + Math.random()*18;
+      h.style.animationDuration = dur + "s";
+      h.style.animationDelay = (-Math.random()*dur) + "s";
+      hearts.appendChild(h);
+      setTimeout(()=>h.remove(), dur*1000);
+    }
+    for(let i=0;i<26;i++) makeHeart();
+    setInterval(makeHeart, 950);
 
-  // Logic
-  const stage = document.getElementById("stage");
-  const yesArea = document.getElementById("yesArea");
-  const noArea = document.getElementById("noArea");
-  const letter = document.getElementById("letter");
+    // Logic
+    const stage = document.getElementById("stage");
+    const yesArea = document.getElementById("yesArea");
+    const noArea = document.getElementById("noArea");
+    const letter = document.getElementById("letter");
 
-  document.getElementById("yesBtn").addEventListener("click", () => {
-    stage.style.display = "block";
-    yesArea.style.display = "block";
-    noArea.classList.remove("show");
-    letter.classList.remove("show");
-  });
+    document.getElementById("yesBtn").addEventListener("click", () => {
+      stage.style.display = "block";
+      yesArea.style.display = "block";
+      noArea.classList.remove("show");
+      letter.classList.remove("show");
+    });
 
-  document.getElementById("noBtn").addEventListener("click", () => {
-    stage.style.display = "block";
-    yesArea.style.display = "none";
-    noArea.classList.add("show");
-    letter.classList.remove("show");
-  });
+    document.getElementById("noBtn").addEventListener("click", () => {
+      stage.style.display = "block";
+      yesArea.style.display = "none";
+      noArea.classList.add("show");
+      letter.classList.remove("show");
+    });
 
-  document.getElementById("openBtn").addEventListener("click", () => {
-    letter.classList.add("show");
-    letter.scrollIntoView({behavior:"smooth", block:"start"});
-  });
+    document.getElementById("openBtn").addEventListener("click", () => {
+      letter.classList.add("show");
+      letter.scrollIntoView({behavior:"smooth", block:"start"});
+    });
 
-  document.getElementById("closeBtn").addEventListener("click", () => {
-    letter.classList.remove("show");
-  });
+    document.getElementById("closeBtn").addEventListener("click", () => {
+      letter.classList.remove("show");
+    });
 
-  // Music
-  const modal = document.getElementById("musicModal");
-  const yt = document.getElementById("ytFrame");
+    // Music
+    const modal = document.getElementById("musicModal");
+    const yt = document.getElementById("ytFrame");
 
-  document.getElementById("musicBtn").addEventListener("click", () => {
-    yt.src = `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&rel=0`;
-    modal.showModal();
-  });
+    document.getElementById("musicBtn").addEventListener("click", () => {
+      yt.src = `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&rel=0`;
+      modal.showModal();
+    });
 
-  document.getElementById("closeMusic").addEventListener("click", () => {
-    modal.close();
-    yt.src = "";
-  });
-</script>
+    document.getElementById("closeMusic").addEventListener("click", () => {
+      modal.close();
+      yt.src = "";
+    });
+  </script>
+</body>
+</html>
